@@ -154,7 +154,8 @@ class _LibraryListScreenState extends State<LibraryListScreen> {
             context,
             MaterialPageRoute(builder: (_) => const AddLibraryScreen()),
           );
-          if (added == true && mounted) {
+          if (!mounted) return;
+          if (added == true) {
             NotificationService.instance.success(context, l10n.added);
           }
         },
